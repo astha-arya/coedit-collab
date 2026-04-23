@@ -16,4 +16,9 @@ frontend/node_modules
 *.sw?
 # Ignore build output
 build/
+.env.local
+frontend/.env.local
+backend/.env.local
     
+
+
