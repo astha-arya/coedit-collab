@@ -2,12 +2,7 @@
 
 > A highly scalable, real-time collaborative rich-text editor powered by CRDTs, WebSockets, and Redis Pub/Sub.
 
-![Live Demo](https://img.shields.io/badge/Live_Demo-Online-success?style=for-the-badge)
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
-
-**[Live Production App] (https://coedit-collab.vercel.app)** ---
+**[Live Production App](https://coedit-collab.vercel.app)**
 
 ## 🚀 Overview
 
