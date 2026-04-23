@@ -2,7 +2,7 @@
 
 > A highly scalable, real-time collaborative rich-text editor powered by CRDTs, WebSockets, and Redis Pub/Sub.
 
-**[Live Production App](https://coedit-collab.vercel.app)**
+**[Live Demo](https://coedit-collab.vercel.app)**
 
 ## 🚀 Overview
 
