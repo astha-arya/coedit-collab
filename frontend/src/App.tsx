@@ -6,7 +6,10 @@ export default function App() {
     <main className="app">
       <header className="app-header">
         <span className="logo">CoEdit</span>
-        <span className="badge">Phase 1 · Local Sync</span>
+        <div className="live-badge">
+          <div className="pulse-dot"></div>
+          LIVE SYNC
+        </div>
       </header>
       <Editor />
     </main>

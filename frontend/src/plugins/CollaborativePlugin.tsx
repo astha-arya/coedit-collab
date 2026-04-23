@@ -1,16 +1,18 @@
 import { CollaborationPlugin } from "@lexical/react/LexicalCollaborationPlugin";
-import { doc, provider } from "../collaboration";
+import * as Y from "yjs";
+import { doc, provider, localUser } from "../collaboration";
 
-export function CollaborativePlugin() {
+export function CollaborativePlugin(): JSX.Element {
   return (
     <CollaborationPlugin
       id="coedit-root"
-      // @ts-ignore - Lexical's strict Provider type slightly mismatches y-websocket's types, but works perfectly at runtime.
-      providerFactory={(id, yjsDocMap) => {
+      providerFactory={(id: string, yjsDocMap: Map<string, Y.Doc>) => {
         yjsDocMap.set(id, doc);
-        return provider;
+        return provider as any; // <-- THIS "as any" FIXES THE RED LINE
       }}
       shouldBootstrap={false}
+      username={localUser.name}
+      cursorColor={localUser.color}
     />
   );
 }

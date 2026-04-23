@@ -1,25 +1,37 @@
+/* Import the professional Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap');
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
+  /* Kept your gorgeous dark color palette */
   --bg: #0e0e10;
   --surface: #18181b;
+  --surface-2: #1f1f23;
   --border: #2a2a2e;
   --accent: #6ee7b7;
+  --accent-dim: rgba(110, 231, 183, 0.12);
   --text: #e4e4e7;
   --muted: #71717a;
+  
+  /* Upgraded Typography */
   --font-mono: "JetBrains Mono", "Fira Code", monospace;
-  --font-serif: "Georgia", serif;
+  --font-serif: "Merriweather", "Georgia", serif;
+  --font-sans: "Inter", sans-serif;
 }
 
 body {
-  background: var(--bg);
+  background-color: var(--bg);
+  /* Adds a premium, subtle dot-matrix background pattern */
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
+  background-size: 32px 32px;
   color: var(--text);
-  font-family: var(--font-serif);
+  font-family: var(--font-sans); 
   min-height: 100vh;
 }
 
 .app {
-  max-width: 780px;
+  max-width: 850px; /* Slightly wider for the document feel */
   margin: 0 auto;
   padding: 2rem 1.5rem 4rem;
 }
@@ -31,51 +43,211 @@ body {
   margin-bottom: 2.5rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--border);
+  /* Delete the <span className="badge"> in your React file to remove the Phase 1 text! */
 }
 
 .logo {
   font-family: var(--font-mono);
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-size: 1.4rem; /* Made it slightly bigger */
+  font-weight: 800;
   letter-spacing: -0.03em;
-  color: var(--accent);
+  /* The Startup Gradient */
+  background: linear-gradient(135deg, #6ee7b7, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 10px rgba(110, 231, 183, 0.2);
+}
+/* ── Editor shell (The "Page" Look) ──────────────────────────────────────── */
+
+.editor-shell {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface);
+  /* The floating drop shadow */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-.badge {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  padding: 2px 8px;
-  border: 1px solid var(--border);
-  border-radius: 99px;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+/* ── Awareness strip (The "Who is Online" Stack) ─────────────────────────── */
+
+.awareness-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end; /* Push avatars to the top right */
+  padding: 12px 16px 0 16px; /* Sit right above the toolbar */
+  background: var(--surface);
+  min-height: 44px;
 }
+
+/* Transformed from pills to overlapping circular avatars */
+.awareness-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  color: #0e0e10;
+  background: var(--pill-color, var(--accent));
+  border: 2px solid var(--surface); /* Creates the cutout overlap effect */
+  margin-left: -8px; /* The overlap magic */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  text-transform: uppercase;
+  overflow: hidden;
+}
+
+/* ── Toolbar ─────────────────────────────────────────────────────────────── */
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface); /* Blend with the document */
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.toolbar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 1.05rem; /* Slightly larger icons */
+  font-family: var(--font-serif);
+  transition: all 0.15s ease;
+}
+
+.toolbar-btn:hover {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+.toolbar-btn.active {
+  background: var(--accent); /* Solid active state */
+  color: var(--bg);
+}
+
+.toolbar-divider {
+  width: 1px;
+  height: 20px;
+  background: var(--border);
+  margin: 0 6px;
+}
+
+/* ── Editor content ──────────────────────────────────────────────────────── */
 
 .editor-container {
   position: relative;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  min-height: 480px;
 }
 
 .editor-input {
   outline: none;
-  padding: 2rem 2.5rem;
-  min-height: 480px;
-  font-size: 1.05rem;
-  line-height: 1.8;
+  padding: 3rem 4rem; /* Luxurious document padding */
+  min-height: 600px;
+  font-family: var(--font-serif); /* Merriweather reading font */
+  font-size: 1.1rem;
+  line-height: 1.85;
   color: var(--text);
   caret-color: var(--accent);
 }
 
 .editor-placeholder {
   position: absolute;
-  top: 2rem;
-  left: 2.5rem;
+  top: 3rem;
+  left: 4rem;
   color: var(--muted);
-  font-size: 1.05rem;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
   pointer-events: none;
   user-select: none;
+}
+
+/* ── Rich text formatting ────────────────────────────────────────────────── */
+
+.editor-text-bold      { font-weight: 700; }
+.editor-text-italic    { font-style: italic; }
+.editor-text-underline { text-decoration: underline; }
+
+.editor-list-ul,
+.editor-list-ol {
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+  font-family: var(--font-serif);
+}
+
+.editor-list-ul { list-style-type: disc; }
+.editor-list-ol { list-style-type: decimal; }
+
+.editor-listitem {
+  margin: 0.25rem 0;
+}
+
+/* ── Remote cursors (injected by @lexical/yjs) ───────────────────────────── */
+
+.collaboration-cursor__caret {
+  position: absolute;
+  border-left: 2px solid;
+  border-color: inherit;
+  height: 1.2em;
+  margin-top: 0.1em;
+}
+
+.collaboration-cursor__label {
+  position: absolute;
+  top: -1.4em;
+  left: -1px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  padding: 2px 6px;
+  border-radius: 4px 4px 4px 0;
+  background: inherit;
+  color: #0e0e10 !important; 
+  font-weight: 800 !important;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4);
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* ── Live Pulse Badge ────────────────────────────────────────────────────── */
+
+.live-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-dim);
+  padding: 4px 12px;
+  border-radius: 99px;
+  border: 1px solid rgba(110, 231, 183, 0.2);
+  letter-spacing: 0.05em;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent);
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1); }
 }
