@@ -1,0 +1,81 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0e0e10;
+  --surface: #18181b;
+  --border: #2a2a2e;
+  --accent: #6ee7b7;
+  --text: #e4e4e7;
+  --muted: #71717a;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+  --font-serif: "Georgia", serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-serif);
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--accent);
+}
+
+.badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.editor-container {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  min-height: 480px;
+}
+
+.editor-input {
+  outline: none;
+  padding: 2rem 2.5rem;
+  min-height: 480px;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text);
+  caret-color: var(--accent);
+}
+
+.editor-placeholder {
+  position: absolute;
+  top: 2rem;
+  left: 2.5rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+  pointer-events: none;
+  user-select: none;
+}
