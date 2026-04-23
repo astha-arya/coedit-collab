@@ -16,7 +16,7 @@ export const doc = new Y.Doc();
 
 export const provider = new WebsocketProvider(
   wsUrl,
-  "coedit-room",
+  "coedit-prod-room-1",
   doc
 );
 
