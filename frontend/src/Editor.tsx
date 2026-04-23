@@ -2,7 +2,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
-import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { ListPlugin } from "@lexical/react/LexicalListPlugin";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
@@ -23,9 +22,8 @@ import {
 import { CollaborativePlugin } from "./plugins/CollaborativePlugin";
 import { provider } from "./collaboration";
 
-// ---------------------------------------------------------------------------
+
 // Types
-// ---------------------------------------------------------------------------
 
 interface AwarenessUser {
   name: string;
@@ -42,9 +40,7 @@ interface ToolbarState {
   underline: boolean;
 }
 
-// ---------------------------------------------------------------------------
 // Awareness pill strip
-// ---------------------------------------------------------------------------
 
 function AwarenessPills(): JSX.Element {
   const [peers, setPeers] = useState<AwarenessUser[]>([]);
@@ -83,9 +79,7 @@ function AwarenessPills(): JSX.Element {
   );
 }
 
-// ---------------------------------------------------------------------------
 // Toolbar
-// ---------------------------------------------------------------------------
 
 interface ToolbarButtonProps {
   active?: boolean;
@@ -191,9 +185,7 @@ function ListIcon({ type }: { type: "ul" | "ol" }) {
   );
 }
 
-// ---------------------------------------------------------------------------
 // Editor
-// ---------------------------------------------------------------------------
 
 const theme = {
   text: {
@@ -231,7 +223,6 @@ export function Editor() {
           />
         </div>
       </div>
-      <HistoryPlugin />
       <ListPlugin />
       <CollaborativePlugin />
     </LexicalComposer>
