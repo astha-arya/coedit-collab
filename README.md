@@ -60,43 +60,69 @@ Mobile devices (iOS/Android) do not send individual keystrokes; they hold text i
 * A local Redis instance or Upstash cloud URL
 * MongoDB URI
 
-### Installation
+## 🚀 Installation
 
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/astha-arya/coedit-collab.git](https://github.com/astha-arya/coedit-collab.git)
-   cd coedit-collab
-2. **Setup Backend:**
-    ```bash
-    cd backend
-    npm install
+### 1. Clone the repository
+```bash
+git clone https://github.com/astha-arya/coedit-collab.git
+cd coedit-collab
+```
 
-Create a .env file in the backend directory:
+---
 
+### 2. Setup Backend
+```bash
+cd backend
+npm install
+```
+
+Create a `.env` file inside the **backend** folder:
+
+```env
 PORT=10000
 MONGO_URI=your_mongodb_connection_string
 REDIS_URL=rediss://default:your_upstash_password@your_upstash_url:6379
+```
 
-3.**Setup Frontend:**
-    ```bash
-    cd ../frontend
-    npm install
+---
 
-Create a .env.local file in the frontend directory:
+### 3. Setup Frontend
+```bash
+cd ../frontend
+npm install
+```
 
+Create a `.env.local` file inside the **frontend** folder:
+
+```env
 VITE_WS_URL=ws://localhost:10000
+```
 
-**Running the App**
-**Open two terminal windows:**
+---
 
-**Terminal 1 (Backend):**
-    ```bash
-    cd backend
-    npm run dev
+## ▶️ Running the App
 
-**Terminal 2 (Frontend):**
-    ```bash
-    cd frontend
-    npm run dev
+Open **two terminals in VS Code**:
 
-Open http://localhost:5173 in two different browser windows to test the live collaboration!
+### Terminal 1 (Backend)
+```bash
+cd backend
+npm run dev
+```
+
+### Terminal 2 (Frontend)
+```bash
+cd frontend
+npm run dev
+```
+
+---
+
+## 🌐 Usage
+
+Open:
+```
+http://localhost:5173
+```
+
+Open it in **two browser windows** to test real-time collaboration.
