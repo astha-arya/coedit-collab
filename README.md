@@ -1,4 +1,5 @@
 # 📝 CoEdit 
+### Distributed Real-Time Collaboration Engine
 
 > A highly scalable, real-time collaborative rich-text editor powered by CRDTs, WebSockets, and Redis Pub/Sub.
 
